@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "package": {
+    "name": "soho-agent",
+    "version": "0.1.0",
+    "status": "local",
+    "releaseUrl": null,
+    "changelogUrl": null,
+    "serverRange": ">=0.1.0 <0.2.0",
+    "toolContractRange": ">=1.0.0 <2.0.0"
+  },
+  "server": {
+    "version": "0.1.0",
+    "toolContractRange": ">=1.0.0 <2.0.0"
+  },
+  "toolContract": {
+    "version": "1.0.0"
+  }
+}

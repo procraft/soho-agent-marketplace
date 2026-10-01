@@ -1,0 +1,5 @@
+image: node:24.20.0-bookworm-slim
+
+verify-marketplace:
+  script:
+    - node scripts/verify-marketplace.mjs

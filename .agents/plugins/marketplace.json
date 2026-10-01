@@ -1,0 +1,20 @@
+{
+  "name": "soho-agent",
+  "plugins": [
+    {
+      "name": "soho-agent",
+      "source": {
+        "source": "local",
+        "path": "./plugins/soho-agent"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ],
+  "interface": {
+    "displayName": "SOHO Agent"
+  }
+}
