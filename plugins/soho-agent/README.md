@@ -1,4 +1,4 @@
-# SOHO Agent 0.1.1
+# SOHO Agent 0.1.2
 
 Prepared Git-distributed skills and read-only remote MCP package. Publication and live client acceptance are separate release steps.
 

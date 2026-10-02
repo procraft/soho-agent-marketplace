@@ -1,6 +1,12 @@
 # Changelog
 
-Local authoring versions only. No public release or marketplace has been published.
+Client package authoring history. Package publication and remote service deployment have separate lifecycles.
+
+## 0.1.2
+
+- Skill checks the live SOHO school/employee context before connected work and shows the initiating administrator and Intrude expiry for support access.
+- MCP validates additive support identity against live introspection on every tool call; legacy direct connections remain compatible.
+- Support school selection/reconnection and one/all connection management are documented. Runtime rollout and live client acceptance remain separate steps.
 
 ## 0.1.1
 

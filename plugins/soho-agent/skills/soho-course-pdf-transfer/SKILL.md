@@ -24,6 +24,14 @@ Missing sources block source inspection. Missing LMS access blocks writes, not o
 
 Discover the connected SOHO tools and supported capabilities. Tool names in implementation plans are proposals, not callable tools. Use high-level controlled tools when present; do not bypass an unavailable capability with guessed GraphQL or copied browser credentials.
 
+## Confirm the SOHO context
+
+Before connected SOHO work, call `soho_context`. Display the authorized school name/UID and employee name/UID. In support mode (`isSupport: true`), also display the administrator (`initiator.name`/`uid`) and `intrudeExpiresAt`. An absent support flag is a legacy direct connection, never evidence of support access. If support identity or expiry is incomplete, stop connected work and request reconnection; do not infer identity from chat or token contents.
+
+Check the context again when resuming or changing the target. Announce a changed school, employee or administrator before proceeding and obtain the user's explicit choice for a school change. Recommend a new chat for another school; MCP cannot isolate chat history. A connection exposes only its authorized school, not a generic school selector.
+
+For support, first choose the school and employee with the existing Admin Intrude interface, then reconnect the installed plugin in Codex or local Claude Code and confirm both identities on the SOHO consent page. Access lasts at most 30 days and never outlives the original Intrude session. Manage or disconnect one/all of your connections in Admin `/settings/agent-connections` or Master `/profile/agent-connections`; use that UI, not a mutation tool. Browser logout alone does not disconnect MCP. This does not establish SOHO OAuth support in Claude Chat/Cowork.
+
 ## Workflow
 
 1. Establish the target organization and **AcademicDiscipline** (teaching template). A commercial `Course` and a student's `Learning*` objects are different targets. Resolve ambiguous IDs before writes.
