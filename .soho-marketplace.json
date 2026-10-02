@@ -5,9 +5,9 @@
   "packageVersion": "0.1.1",
   "endpoint": "https://api.soholms.com/mcp",
   "source": {
-    "commit": "20f73eea332c41df642c987f0c3f137d8e6c134c",
+    "commit": "f03174a14a1c4bd105b860327b172cc45484a867",
     "releaseTag": null,
-    "exportSha256": "e18a3cc3493bc860fea9641cd1edaeedb5b1eb8ff12cafd9b564d980468314f4"
+    "exportSha256": "2798f14686e4cbd38e6ab10c6e2617307d01081674ed72dad00fe88fc38c387d"
   },
   "files": [
     {
@@ -107,18 +107,18 @@
     },
     {
       "path": "README.en.md",
-      "bytes": 5365,
-      "sha256": "cc93bc5cacc379d5974447407609484535ad274365024c4579e43efd23b4b482"
+      "bytes": 6471,
+      "sha256": "4fe98d1cd1c3b578ad0fd77ad9ec36655bbbcf561285492a7df546929c9b6085"
     },
     {
       "path": "README.kk.md",
-      "bytes": 3824,
-      "sha256": "6dc75f7a623a3b6b6ef07f29f96d4cc0899cf8e198139132d54e7feb14266e64"
+      "bytes": 5348,
+      "sha256": "66a4765fc0b958bdbe04679bfcaa30445b6ff7fa066de3937af5faf9ec45c7a2"
     },
     {
       "path": "README.md",
-      "bytes": 3588,
-      "sha256": "2d362ca3e7ee6c81de245e6bc4a1fa60cb74d92669cad855c881aa8551dfc081"
+      "bytes": 5197,
+      "sha256": "4508279fc44ff7520a8f89bf4f668b3cf27414825ca874b2cae746350fd255c8"
     },
     {
       "path": "scripts/verify-marketplace.mjs",

@@ -2,26 +2,39 @@
 
 [Русский](README.md) · [Қазақша](README.kk.md) · English
 
-## Installation
+## Install in Codex Desktop — no terminal
 
-Install Codex or Claude Code with plugin support first.
+1. Open **Plugins → Personal → Add → Add a marketplace**.
+2. In **Add plugin marketplace**, enter:
+   - **Source:** `https://github.com/procraft/soho-agent-marketplace.git`
+   - **Git ref:** `master`
+   - **Sparse paths:** leave empty.
+3. Select **Add marketplace**, choose the **SOHO Agent** marketplace and install **soho-agent**.
+4. Complete the offered SOHO sign-in and start a new chat.
 
-**Codex:** add the marketplace in a terminal:
+No terminal, ZIP download or manual MCP setup is needed. These fields are confirmed in the current Desktop UI; package installation and live SOHO login remain untested. School connection requirements are below.
+
+<details>
+<summary>CLI installation — if you prefer a terminal</summary>
+
+If you prefer a terminal, register the Git marketplace for Codex:
 
 ```sh
 codex plugin marketplace add https://github.com/procraft/soho-agent-marketplace.git
 ```
 
-In the Codex app plugin directory, find the `soho-agent` marketplace and install `soho-agent`. Start a new session.
+Then choose **Plugins → SOHO Agent** in the app, install **soho-agent** and start a new session.
 
-**Claude Code:** run:
+For **Claude Code** with plugin support:
 
 ```sh
 claude plugin marketplace add https://github.com/procraft/soho-agent-marketplace.git
 claude plugin install soho-agent@soho-agent
 ```
 
-Start a new Claude Code session or run `/reload-plugins`.
+Start a new Claude Code session or run `/reload-plugins`. These settings target Claude Code; ordinary Claude Desktop chat compatibility is not established.
+
+</details>
 
 ## Current availability
 
@@ -35,6 +48,11 @@ GitHub distributes the package. SOHO login and school consent are a separate bro
 
 ## Updates
 
+**In Codex Desktop:** refresh the **SOHO Agent** marketplace in Plugins, then update the installed plugin and start a new chat. To add it again, use Source `https://github.com/procraft/soho-agent-marketplace.git`, Git ref `master` and leave Sparse paths empty.
+
+<details>
+<summary>CLI updates</summary>
+
 ```sh
 codex plugin marketplace upgrade soho-agent
 ```
@@ -47,6 +65,8 @@ claude plugin update soho-agent@soho-agent
 ```
 
 Restart Claude Code. To add the marketplace again, use `https://github.com/procraft/soho-agent-marketplace.git`.
+
+</details>
 
 Read the [changelog](plugins/soho-agent/CHANGELOG.md) and [version metadata](plugins/soho-agent/release-metadata.json). Package and service releases are independent; no background self-update is implemented.
 

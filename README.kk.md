@@ -2,26 +2,39 @@
 
 [Русский](README.md) · Қазақша · [English](README.en.md)
 
-## Орнату
+## Codex Desktop ішінде орнату — терминалсыз
 
-Плагиндерді қолдайтын Codex немесе Claude Code орнатылған болуы керек.
+1. **Plugins → Personal → Add → Add a marketplace** ашыңыз.
+2. **Add plugin marketplace** терезесінде толтырыңыз:
+   - **Source:** `https://github.com/procraft/soho-agent-marketplace.git`
+   - **Git ref:** `master`
+   - **Sparse paths:** бос қалдырыңыз.
+3. **Add marketplace** басыңыз. **SOHO Agent** marketplace таңдап, **soho-agent** плагинін орнатыңыз.
+4. Ұсынылған SOHO кіруін аяқтап, жаңа чат бастаңыз.
 
-**Codex:** терминалда marketplace қосыңыз:
+Терминал, ZIP жүктеу немесе MCP қолмен баптау қажет емес. Бұл өрістер қазіргі Desktop интерфейсінде расталған; пакетті орнату және SOHO жүйесіне нақты кіру әлі тексерілмеген. Мектепке қосылу талаптары төменде сипатталған.
+
+<details>
+<summary>CLI арқылы орнату — терминалды қалайтындар үшін</summary>
+
+Терминалды қаласаңыз, Codex үшін Git marketplace тіркеңіз:
 
 ```sh
 codex plugin marketplace add https://github.com/procraft/soho-agent-marketplace.git
 ```
 
-Codex қолданбасында плагиндер каталогын ашып, `soho-agent` marketplace ішінен `soho-agent` плагинін орнатыңыз. Содан кейін жаңа сессия бастаңыз.
+Содан кейін қолданбада **Plugins → SOHO Agent** арқылы **soho-agent** плагинін орнатып, жаңа сессия бастаңыз.
 
-**Claude Code:** терминалда орындаңыз:
+Плагиндерді қолдайтын **Claude Code** үшін:
 
 ```sh
 claude plugin marketplace add https://github.com/procraft/soho-agent-marketplace.git
 claude plugin install soho-agent@soho-agent
 ```
 
-Claude Code бағдарламасында жаңа сессия бастаңыз немесе `/reload-plugins` пәрменін орындаңыз.
+Жаңа Claude Code сессиясын бастаңыз немесе `/reload-plugins` орындаңыз. Бұл баптаулар Claude Code үшін арналған; кәдімгі Claude Desktop чатында жұмыс істеуі расталмаған.
+
+</details>
 
 ## Қазір не қолжетімді
 
@@ -35,6 +48,11 @@ GitHub пакетті алу үшін қолданылады. SOHO жүйесі�
 
 ## Жаңарту
 
+**Codex Desktop ішінде:** Plugins каталогында **SOHO Agent** marketplace жаңартып, орнатылған плагинді жаңартыңыз да, жаңа чат бастаңыз. Қайта қосқанда Source `https://github.com/procraft/soho-agent-marketplace.git`, Git ref `master` қолданыңыз, Sparse paths бос қалсын.
+
+<details>
+<summary>CLI арқылы жаңарту</summary>
+
 ```sh
 codex plugin marketplace upgrade soho-agent
 ```
@@ -47,6 +65,8 @@ claude plugin update soho-agent@soho-agent
 ```
 
 Claude Code бағдарламасын қайта іске қосыңыз. Marketplace қайта қосу қажет болса, `https://github.com/procraft/soho-agent-marketplace.git` URL қолданыңыз.
+
+</details>
 
 Өзгерістер: [CHANGELOG](plugins/soho-agent/CHANGELOG.md). Пакет пен қызмет бөлек жаңартылады; фондық автоматты жаңарту іске асырылмаған.
 
