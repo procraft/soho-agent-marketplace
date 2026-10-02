@@ -2,7 +2,15 @@
   "mcpServers": {
     "soho": {
       "type": "http",
-      "url": "https://api.soholms.com/mcp"
+      "url": "https://api.soholms.com/mcp",
+      "scopes": [
+        "soho.learning.read"
+      ],
+      "oauth_resource": "https://api.soholms.com/mcp",
+      "oauth": {
+        "clientId": "soho-agent-codex",
+        "callbackUrl": "http://127.0.0.1/callback"
+      }
     }
   }
 }

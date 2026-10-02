@@ -2,12 +2,12 @@
   "schemaVersion": 1,
   "generator": "soho-agent-marketplace",
   "name": "soho-agent",
-  "packageVersion": "0.1.0",
+  "packageVersion": "0.1.1",
   "endpoint": "https://api.soholms.com/mcp",
   "source": {
-    "commit": null,
+    "commit": "20f73eea332c41df642c987f0c3f137d8e6c134c",
     "releaseTag": null,
-    "exportSha256": "a45acad7a2096df2561c7e695e117fff35f120b5f1aa99da3d25d56476c2c729"
+    "exportSha256": "e18a3cc3493bc860fea9641cd1edaeedb5b1eb8ff12cafd9b564d980468314f4"
   },
   "files": [
     {
@@ -18,12 +18,7 @@
     {
       "path": ".claude-plugin/marketplace.json",
       "bytes": 363,
-      "sha256": "865bb29511b04c56c90ce288bfbe9fd5f1edd08888364fd8989baa2acd9cd812"
-    },
-    {
-      "path": ".cursor-plugin/marketplace.json",
-      "bytes": 363,
-      "sha256": "865bb29511b04c56c90ce288bfbe9fd5f1edd08888364fd8989baa2acd9cd812"
+      "sha256": "00899fb2d2d49289064dbf8ce34a8d402388de86c4d4fda9378300be7cc05a04"
     },
     {
       "path": ".gitignore",
@@ -42,43 +37,38 @@
     },
     {
       "path": "plugins/soho-agent/.claude-plugin/plugin.json",
-      "bytes": 154,
-      "sha256": "93732ff843b50fa8b1332634d03d0556c44ca57c12eac538ba74d189ea71eb54"
+      "bytes": 197,
+      "sha256": "fa35fa6252510842ec3e6601d859526a84af7e86243897573382115c9697217e"
     },
     {
-      "path": "plugins/soho-agent/.cursor-plugin/plugin.json",
-      "bytes": 160,
-      "sha256": "05d8999bdf703167e8398f1edf8e1ff7d5a56e4ba2d412dde1bf373c9bf2de5d"
+      "path": "plugins/soho-agent/.codex-plugin/plugin.json",
+      "bytes": 216,
+      "sha256": "fde550aa00b3a1e4db4c4d41990c2914ab27d63b4fff3167352fc29efdb48c06"
     },
     {
       "path": "plugins/soho-agent/.mcp.json",
-      "bytes": 111,
-      "sha256": "17cef14d9f04403787e827fcf6333faef27e48b943b7e89121fefcbd0b88eef6"
+      "bytes": 339,
+      "sha256": "961c6d03b1258f26eaa85664a7757f9b02308533b0b9a481d1ce9e3ce371dfc8"
     },
     {
       "path": "plugins/soho-agent/CHANGELOG.md",
-      "bytes": 1762,
-      "sha256": "18de78a8ddd240a869422d80bf7b9728eceb68482787802efc0c299d301f9c8d"
+      "bytes": 2290,
+      "sha256": "d8ed11a99bb17056f3cde65e4a5c86f83bb08a2343526c0583c24f83d7757f75"
     },
     {
-      "path": "plugins/soho-agent/mcp.json",
-      "bytes": 194,
-      "sha256": "6d96c0f5e4fc0d301830f72a934e9ca0c310ff9264d9a0bc97c80b74c0cafbfe"
-    },
-    {
-      "path": "plugins/soho-agent/plugin.json",
-      "bytes": 279,
-      "sha256": "f3d142d4bb514aa1007d375d80a5d28626cc18915c4c311dd789560002e6d5a8"
+      "path": "plugins/soho-agent/mcp-claude.json",
+      "bytes": 252,
+      "sha256": "5dac3f44b19f92d93e70725ec8707e52fa81c1d79ebf4685cf1ae3123dc9e925"
     },
     {
       "path": "plugins/soho-agent/README.md",
-      "bytes": 701,
-      "sha256": "4e11fcc11d7ef7cf325e68f266da39d387e4eb6bafdfe44f927744230377157c"
+      "bytes": 943,
+      "sha256": "0b1cb9bf971c80a8861668bb2dbd07a7d4a2ca1ae83662ba11d13bad6c3cca7a"
     },
     {
       "path": "plugins/soho-agent/release-metadata.json",
       "bytes": 380,
-      "sha256": "d34344091d2c6381ffb373fc1a1be4c205019da45bb70b4ba9640ee8760bce6d"
+      "sha256": "8efcdff25a571cecdb0395d704f2505dc3f18d41d6f3a8abeb2a40ab19c6b030"
     },
     {
       "path": "plugins/soho-agent/scripts/distribution-lib.mjs",
@@ -87,8 +77,8 @@
     },
     {
       "path": "plugins/soho-agent/scripts/generate-mcp-config.mjs",
-      "bytes": 1432,
-      "sha256": "e5b77f5780134f05b84e5ff2858d1d4dd5f5fc658e848d287e5995c920a6bfca"
+      "bytes": 2312,
+      "sha256": "0ac286f5229d01f8adeca78bfaa8bf7b4f7b037f7e3ddc344d5293ecfd9f13ec"
     },
     {
       "path": "plugins/soho-agent/scripts/version-check.mjs",
@@ -116,14 +106,24 @@
       "sha256": "a57afb1fbf976d75dd39db1182209d74b887ea50462322f1f22f8d3648a12aea"
     },
     {
+      "path": "README.en.md",
+      "bytes": 5365,
+      "sha256": "cc93bc5cacc379d5974447407609484535ad274365024c4579e43efd23b4b482"
+    },
+    {
+      "path": "README.kk.md",
+      "bytes": 3824,
+      "sha256": "6dc75f7a623a3b6b6ef07f29f96d4cc0899cf8e198139132d54e7feb14266e64"
+    },
+    {
       "path": "README.md",
-      "bytes": 5287,
-      "sha256": "a48b0e0a2258a3b4976114de0433ee4d37174bbdb0ba3a843a1ef83e93e97109"
+      "bytes": 3588,
+      "sha256": "2d362ca3e7ee6c81de245e6bc4a1fa60cb74d92669cad855c881aa8551dfc081"
     },
     {
       "path": "scripts/verify-marketplace.mjs",
-      "bytes": 6446,
-      "sha256": "b47fb90de5ad8679091bd157a5755593b2236d168ab926bcbcb5b3af13495321"
+      "bytes": 8441,
+      "sha256": "90cd0a706c14be7b044bea8cc2b5c24f07c81b39aaaa5e99f22329e78cc2eaaa"
     }
   ]
 }

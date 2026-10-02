@@ -1,8 +1,10 @@
 {
   "name": "soho-agent",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Portable workflows for authorized SOHO.LMS work.",
   "author": {
     "name": "SOHO.LMS"
-  }
+  },
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
 }

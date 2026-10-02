@@ -2,6 +2,14 @@
 
 Local authoring versions only. No public release or marketplace has been published.
 
+## 0.1.1
+
+- Separate preregistered public OAuth settings for Codex and Claude Code marketplace installs; no client secrets.
+- Public Git package uses the supported Codex compatibility layout and a Claude MCP override sharing one skills tree.
+- Russian installation README plus Kazakh and English translations with concrete GitHub commands.
+- Cursor marketplace removed until its preregistration and callback compatibility are established.
+- Live client login, deployment and school enablement remain separate acceptance steps.
+
 ## 0.1.0
 
 - Companion read-only backend OAuth/grants and Master consent/connections UI implemented in isolated product worktrees; not deployed, migrated or real-client accepted.

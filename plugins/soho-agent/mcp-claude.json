@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "soho": {
+      "type": "http",
+      "url": "https://api.soholms.com/mcp",
+      "oauth": {
+        "clientId": "soho-agent-claude-code",
+        "callbackPort": 8766,
+        "scopes": "soho.learning.read"
+      }
+    }
+  }
+}
