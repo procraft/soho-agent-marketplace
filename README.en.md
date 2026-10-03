@@ -59,6 +59,8 @@ Start a new Claude Code session or run `/reload-plugins`. These settings target 
 
 For support, first select the school and employee in the existing **Admin Intrude** interface, then reconnect the installed SOHO Agent in Codex or local Claude Code and confirm the school, employee and administrator on the SOHO consent page. Before connected work, the agent reads `soho_context` and displays these identities. Changing schools requires an explicit choice; a new chat is recommended.
 
+The agent displays the connection expiry separately from the original Intrude deadline. If an older backend does not supply the connection expiry, no exact date is claimed.
+
 Access lasts at most 30 days and never outlives the original Intrude session. Disconnect one or all of your connections in Admin → `/settings/agent-connections` or [Master → Agent connections](https://master.soholms.com/profile/agent-connections). Browser logout alone does not disconnect MCP. This scenario does not add SOHO OAuth for Chat/Cowork; deployment and live login verification remain separate steps.
 
 ## Current availability

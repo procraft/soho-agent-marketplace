@@ -2,6 +2,12 @@
 
 Client package authoring history. Package publication and remote service deployment have separate lifecycles.
 
+## 0.1.3
+
+- Context preserves and validates the actual connection expiry separately from the access-token lifetime and original Intrude ceiling.
+- Skill labels the connection deadline correctly for direct/support access; older backends without that field never receive an invented expiry date.
+- Backend context rollout, MCP rollout and installed plugin refresh are separate steps; grant lifetime policies remain unchanged.
+
 ## 0.1.2
 
 - Skill checks the live SOHO school/employee context before connected work and shows the initiating administrator and Intrude expiry for support access.

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "package": {
     "name": "soho-agent",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "status": "local",
     "releaseUrl": null,
     "changelogUrl": null,

@@ -2,12 +2,12 @@
   "schemaVersion": 1,
   "generator": "soho-agent-marketplace",
   "name": "soho-agent",
-  "packageVersion": "0.1.2",
+  "packageVersion": "0.1.3",
   "endpoint": "https://api.soholms.com/mcp",
   "source": {
-    "commit": "8c41d4d8acef5455804b67bb27d0604c2a383152",
+    "commit": "8d0a346af92eadf594399b7ced13914d80cc2854",
     "releaseTag": null,
-    "exportSha256": "c45ed4fe39234644fe307f9a625411f32d59b95d93d2dbf193d3b1034e552b5f"
+    "exportSha256": "313623b0be903f15c98ccd817e4b7ac906a8a1dd1d3ef0675acd5e155a5c40b1"
   },
   "files": [
     {
@@ -18,7 +18,7 @@
     {
       "path": ".claude-plugin/marketplace.json",
       "bytes": 363,
-      "sha256": "df5d69211c15399977fe6c2a285275ee70e506ab411188ca5245f959f770d81e"
+      "sha256": "6d20c6b48ab0a4b2091c939e119c34ebdc9f4ba0733685fdd62c3de295edeec0"
     },
     {
       "path": ".gitignore",
@@ -38,12 +38,12 @@
     {
       "path": "plugins/soho-agent/.claude-plugin/plugin.json",
       "bytes": 197,
-      "sha256": "c45bb76eb28066d554fec0898d4ec1043bdedf840cc0ec84047d00752716125c"
+      "sha256": "cb0dcdcc6143016cdae5f50c81835b3ba258e424dcd5e0c0608c336e040a8adf"
     },
     {
       "path": "plugins/soho-agent/.codex-plugin/plugin.json",
       "bytes": 216,
-      "sha256": "a790f3b4c4a81150ea2f84c76c6d452335981b7271de1a64beb8d728a6f512f4"
+      "sha256": "f30ccbefab1ddb413ecb3a39099abaf9b6e18b17c1699ea872a66fb85083e30f"
     },
     {
       "path": "plugins/soho-agent/.mcp.json",
@@ -52,8 +52,8 @@
     },
     {
       "path": "plugins/soho-agent/CHANGELOG.md",
-      "bytes": 2770,
-      "sha256": "a163dfe65ca34c7f04ebe34e95594c62898e03c422257e9d416a6f2a90640217"
+      "bytes": 3195,
+      "sha256": "e8597d04fdd3b2fd2b94b3dd3bcd26c50a40001d176aadd2e9e30579bd3cad68"
     },
     {
       "path": "plugins/soho-agent/mcp-claude.json",
@@ -63,12 +63,12 @@
     {
       "path": "plugins/soho-agent/README.md",
       "bytes": 943,
-      "sha256": "2e9360c3b624055ba8779b20b12a1a43e26bcd1afa8af7a8ef666d8ddb54fff3"
+      "sha256": "ac2a3254eda74112fb9c3a4060b72b89bb61f8c58f17d3016e60a805dbf97e65"
     },
     {
       "path": "plugins/soho-agent/release-metadata.json",
       "bytes": 380,
-      "sha256": "dfc322c30cedcad72bce83c940a76fd8f6ac12a83d86022394f2286181b5808f"
+      "sha256": "9d983e65fe1d743935b7efdeb94f5e5f33d30077a9d44f27c4e41914c93796f1"
     },
     {
       "path": "plugins/soho-agent/scripts/distribution-lib.mjs",
@@ -102,23 +102,23 @@
     },
     {
       "path": "plugins/soho-agent/skills/soho-course-pdf-transfer/SKILL.md",
-      "bytes": 6256,
-      "sha256": "5ae27e813b22e4fcfd0d353891097b0b8ffa8174bbb4dd933f193a131e4e83a4"
+      "bytes": 6823,
+      "sha256": "809de083dde446de10b2ea81225a77b8f379b7e4df404cd0a15ffc644db40e07"
     },
     {
       "path": "README.en.md",
-      "bytes": 9677,
-      "sha256": "9019d223dc0b562b99cef47ad696050dad524241e6a1d5d81dc680f4f66c8c70"
+      "bytes": 9851,
+      "sha256": "14a188d9201fb18690f41df677ee30e3f4c909ec2dbc5c1d692373417364db34"
     },
     {
       "path": "README.kk.md",
-      "bytes": 9632,
-      "sha256": "ffc61aee1ce13175930cb8d33c4e4b367d168e3b489f31a36bb087e408b443bc"
+      "bytes": 9885,
+      "sha256": "a885e4bd18dc43d35c79451c7508ae1414c56d88fe34e574e2cf59796410bff8"
     },
     {
       "path": "README.md",
-      "bytes": 9278,
-      "sha256": "fd57be066c3eb49e8581843b50d73f59049fd7f806011c4b097b760c9faf9225"
+      "bytes": 9591,
+      "sha256": "464cbfd4e0c43d619b4814240bb61861ef2dfb654df56c092e1b97ecb2bb4d53"
     },
     {
       "path": "scripts/verify-marketplace.mjs",

@@ -26,7 +26,9 @@ Discover the connected SOHO tools and supported capabilities. Tool names in impl
 
 ## Confirm the SOHO context
 
-Before connected SOHO work, call `soho_context`. Display the authorized school name/UID and employee name/UID. In support mode (`isSupport: true`), also display the administrator (`initiator.name`/`uid`) and `intrudeExpiresAt`. An absent support flag is a legacy direct connection, never evidence of support access. If support identity or expiry is incomplete, stop connected work and request reconnection; do not infer identity from chat or token contents.
+Before connected SOHO work, call `soho_context`. Display the authorized school name/UID and employee name/UID. In support mode (`isSupport: true`), also display the administrator (`initiator.name`/`uid`). An absent support flag is a legacy direct connection, never evidence of support access. If support identity or expiry is incomplete, stop connected work and request reconnection; do not infer identity from chat or token contents.
+
+When `context.expiresAt` is present, show it as the connection expiry in the user's language: **«Доступ подключения до»** in Russian. This is the actual grant deadline for both direct and support access. If useful, show `intrudeExpiresAt` separately as **«Срок исходного Intrude до»**; it is only the original Intrude ceiling. Never substitute that date or the short-lived access-token expiry for the connection deadline. If an older backend omits `expiresAt`, state that the exact connection expiry is unavailable; do not calculate or invent a date.
 
 Check the context again when resuming or changing the target. Announce a changed school, employee or administrator before proceeding and obtain the user's explicit choice for a school change. Recommend a new chat for another school; MCP cannot isolate chat history. A connection exposes only its authorized school, not a generic school selector.
 
