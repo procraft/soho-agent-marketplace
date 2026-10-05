@@ -55,6 +55,19 @@ Start a new Claude Code session or run `/reload-plugins`. These settings target 
 
 </details>
 
+## Your SOHO connections
+
+Select **soho-connections** in the Codex skill picker, or `/soho-agent:soho-connections` in local Claude Code. It shows one page of your own connections: current marker, client, school, employee/support administrator, expiry/revocation and last registered request. Support mode lists only the initiator’s support connections; direct mode lists only the effective employee’s direct connections. The modes are not combined. Ask for more to load the next page. These are OAuth connections, not chats or online status; request history is approximate to a minute, and missing history is unknown. Requires backend `connections.v1` rollout; otherwise use Master/Admin connections. Listing does not disconnect anything.
+
+## Disconnect or reconnect SOHO
+
+In Codex, select **soho-disconnect** or **soho-reconnect** in the `/`/`$` skill picker. Local Claude Code plugin commands are `/soho-agent:soho-disconnect` and `/soho-agent:soho-reconnect`.
+
+**Disconnect** calls `soho_disconnect` for the current connection only: every chat sharing its grant loses access. Other connections, LMS data and chat history are unchanged. An error means the outcome is unconfirmed, with no automatic retry; inspect [your Master connections](https://master.soholms.com/profile/agent-connections) or Admin → `/settings/agent-connections`. On an older server without the tool, the helper gives UI guidance and explicitly reports that it has not disconnected anything.
+
+**Reconnect** guides the available native SOHO sign-in controls, then checks the school with `soho_context`. It preserves the old grant while starting a new OAuth flow and cannot launch host login automatically. To switch support schools, select Admin Intrude first, then confirm the new school in SOHO. After successful login, start a new Codex Desktop chat; local Claude Code also supports native `/clear`. The skill cannot clear the chat itself; a new chat does not revoke OAuth. The Chat/Cowork limitation above remains. The new tool requires a package update and remote service 0.1.1 rollout; live acceptance remains unverified.
+
+
 ## Support employee access
 
 For support, first select the school and employee in the existing **Admin Intrude** interface, then reconnect the installed SOHO Agent in Codex or local Claude Code and confirm the school, employee and administrator on the SOHO consent page. Before connected work, the agent reads `soho_context` and displays these identities. Changing schools requires an explicit choice; a new chat is recommended.

@@ -2,6 +2,14 @@
 
 Client package authoring history. Package publication and remote service deployment have separate lifecycles.
 
+## 0.1.4
+
+- Add bounded own-connection metadata and the soho-connections skill, including current grant and approximate last request history; requires companion backend connections.v1 rollout.
+
+- Current-grant-only `soho_disconnect` control in remote service0.1.1, with live identity checks, explicit cross-chat effect and non-retryable unconfirmed outcomes.
+- Portable disconnect/reconnect skills guide supported client OAuth and new-chat controls without claiming host automation or changing client credentials.
+- Reconnect preserves the current connection until a new OAuth flow succeeds; learning operations remain read-only and tool contract1.0.0 is unchanged.
+
 ## 0.1.3
 
 - Context preserves and validates the actual connection expiry separately from the access-token lifetime and original Intrude ceiling.
