@@ -2,6 +2,14 @@
 
 Client package authoring history. Package publication and remote service deployment have separate lifecycles.
 
+## 0.1.5
+
+- Consolidate connection inventory, current disconnect and native reconnect into the single soho-connection skill.
+
+- Add shared soho-graphql skill and remote schema/validation/Query/Mutation tools for the dedicated Agent schema.
+- Support scoped teaching-template and empty-draft-lesson creation with stable idempotency keys and explicit unknown outcomes.
+- Request read+write consent for new client grants; old read grants remain compatible. Package0.1.5/server0.1.2; legacy registered contract1.0.0, document/schema1.1.0. Backend/evolution/consent rollout and live acceptance remain separate.
+
 ## 0.1.4
 
 - Add bounded own-connection metadata and the soho-connections skill, including current grant and approximate last request history; requires companion backend connections.v1 rollout.

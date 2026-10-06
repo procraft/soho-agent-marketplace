@@ -8,10 +8,10 @@
       "name": "soho-agent",
       "source": "./plugins/soho-agent",
       "description": "Portable workflows for authorized SOHO.LMS work.",
-      "version": "0.1.4"
+      "version": "0.1.5"
     }
   ],
   "metadata": {
-    "description": "SOHO.LMS portable skills and read-only MCP connection."
+    "description": "SOHO.LMS portable skills and bounded Agent GraphQL connection."
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "soho-agent",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Portable workflows for authorized SOHO.LMS work.",
   "author": {
     "name": "SOHO.LMS"

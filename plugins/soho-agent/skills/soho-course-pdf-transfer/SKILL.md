@@ -19,10 +19,10 @@ Missing sources block source inspection. Missing LMS access blocks writes, not o
 ## Read only the needed reference
 
 - Before source extraction or structure planning: [transfer manifest and content rules](references/transfer-manifest.md).
-- Before any LMS read/write: [GraphQL introduction and safe operations](references/graphql-soho.md).
+- Before any LMS read/write: [shared SOHO GraphQL layer](../soho-graphql/SKILL.md), then [PDF content-specific API rules](references/graphql-soho.md).
 - Before creating or repairing rich text/quizzes: [rich-text compatibility](references/rich-text.md).
 
-Discover the connected SOHO tools and supported capabilities. Tool names in implementation plans are proposals, not callable tools. Use high-level controlled tools when present; do not bypass an unavailable capability with guessed GraphQL or copied browser credentials.
+Discover the connected SOHO tools and supported capabilities. The Agent document API can create teaching templates and empty draft lessons, but cannot upload PDF files or write content/settings/quizzes; stop a full transfer at unavailable capabilities. Tool names in implementation plans are proposals, not callable tools. Use high-level controlled tools when present; do not bypass an unavailable capability with guessed GraphQL or copied browser credentials.
 
 ## Confirm the SOHO context
 
@@ -32,7 +32,7 @@ When `context.expiresAt` is present, show it as the connection expiry in the use
 
 Check the context again when resuming or changing the target. Announce a changed school, employee or administrator before proceeding and obtain the user's explicit choice for a school change. Recommend a new chat for another school; MCP cannot isolate chat history. A connection exposes only its authorized school, not a generic school selector.
 
-For support, first choose the school and employee with the existing Admin Intrude interface, then reconnect the installed plugin in Codex or local Claude Code and confirm both identities on the SOHO consent page. Access lasts at most 30 days and never outlives the original Intrude session. To disconnect the current connection explicitly, use [SOHO disconnect](../soho-disconnect/SKILL.md); to reconnect, use [SOHO reconnect](../soho-reconnect/SKILL.md). Manage or disconnect one/all of your connections in Admin `/settings/agent-connections` or Master `/profile/agent-connections`; use that UI for other/all connections. Browser logout alone does not disconnect MCP. This does not establish SOHO OAuth support in Claude Chat/Cowork.
+For support, first choose the school and employee with the existing Admin Intrude interface, then reconnect the installed plugin in Codex or local Claude Code and confirm both identities on the SOHO consent page. Access lasts at most 30 days and never outlives the original Intrude session. For connection inventory, explicit current-connection disconnect or native reconnect, use [SOHO connection](../soho-connection/SKILL.md). Manage or disconnect one/all of your connections in Admin `/settings/agent-connections` or Master `/profile/agent-connections`; use that UI for other/all connections. Browser logout alone does not disconnect MCP. This does not establish SOHO OAuth support in Claude Chat/Cowork.
 
 ## Workflow
 

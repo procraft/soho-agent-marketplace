@@ -12,6 +12,10 @@ async function readJson(root, file) {
 const catalogs = ['.agents/plugins/marketplace.json', '.claude-plugin/marketplace.json', '.cursor-plugin/marketplace.json'];
 const rootFiles = [...catalogs, 'README.md', 'README.kk.md', 'README.en.md', 'AGENTS.md', '.gitignore', '.gitlab-ci.yml', 'scripts/verify-marketplace.mjs'];
 const pluginFiles = ['.codex-plugin/plugin.json', 'mcp-claude.json', 'plugin.json', '.claude-plugin/plugin.json', '.cursor-plugin/plugin.json', 'mcp.json', '.mcp.json', 'README.md', 'CHANGELOG.md', 'release-metadata.json', 'scripts/distribution-lib.mjs', 'scripts/generate-mcp-config.mjs', 'scripts/version-check.mjs'];
+function writeScopeVersion(version) {
+  const match = /^(\d+)\.(\d+)\.(\d+)/.exec(version);
+  return !!match && (Number(match[1]) > 0 || Number(match[2]) > 1 || (Number(match[2]) === 1 && Number(match[3]) >= 5));
+}
 export function allowedPublicPath(file) {
   if (typeof file !== 'string' || file.includes('\\') || file.split('/').some((part) => !part || part === '.' || part === '..')) return false;
   return rootFiles.includes(file) || pluginFiles.some((name) => file === `plugins/soho-agent/${name}`) || /^plugins\/soho-agent\/skills\/[a-z0-9-]+\/(?:[a-zA-Z0-9_.-]+\/)*[a-zA-Z0-9_.-]+\.md$/.test(file);
@@ -84,8 +88,8 @@ export async function verifyMarketplace(root, { ignoreRefreshLock = false } = {}
   for (const file of native ? ['.mcp.json', 'mcp-claude.json'] : ['mcp.json', '.mcp.json']) {
     const value = await readJson(pluginRoot, file);
     const nativeServer = file === 'mcp-claude.json'
-      ? { type: 'http', url: marker.endpoint, oauth: { clientId: 'soho-agent-claude-code', callbackPort: 8766, scopes: 'soho.learning.read' } }
-      : { type: 'http', url: marker.endpoint, scopes: ['soho.learning.read'], oauth_resource: marker.endpoint, oauth: { clientId: 'soho-agent-codex', callbackUrl: 'http://127.0.0.1/callback' } };
+      ? { type: 'http', url: marker.endpoint, oauth: { clientId: 'soho-agent-claude-code', callbackPort: 8766, scopes: writeScopeVersion(marker.packageVersion) ? 'soho.learning.read soho.learning.write' : 'soho.learning.read' } }
+      : { type: 'http', url: marker.endpoint, scopes: writeScopeVersion(marker.packageVersion) ? ['soho.learning.read', 'soho.learning.write'] : ['soho.learning.read'], oauth_resource: marker.endpoint, oauth: { clientId: 'soho-agent-codex', callbackUrl: 'http://127.0.0.1/callback' } };
     const expectedConfig = native ? { mcpServers: { soho: nativeServer } } : { ...(file === 'mcp.json' ? { $schema: 'https://agent-plugins.org/schemas/1.0.0/mcp.schema.json' } : {}), mcpServers: { soho: { type: file === 'mcp.json' ? 'streamable-http' : 'http', url: marker.endpoint } } };
     if (JSON.stringify(value) !== JSON.stringify(expectedConfig)) throw new Error('Marketplace MCP endpoint/OAuth/credential mismatch');
   }

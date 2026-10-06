@@ -6,7 +6,7 @@
       "oauth": {
         "clientId": "soho-agent-claude-code",
         "callbackPort": 8766,
-        "scopes": "soho.learning.read"
+        "scopes": "soho.learning.read soho.learning.write"
       }
     }
   }

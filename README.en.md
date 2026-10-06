@@ -55,13 +55,17 @@ Start a new Claude Code session or run `/reload-plugins`. These settings target 
 
 </details>
 
+## Shared GraphQL workflow
+
+Use **soho-graphql** in Codex or `/soho-agent:soho-graphql` in local Claude Code. It discovers the dedicated Agent schema, validates documents and executes bounded Query/Mutation through remote MCP; no local scripts or copied browser tokens are required. New consent requests read+write access; existing read grants remain read-only until native reconnect and explicit consent. The first writes create a teaching template or empty draft lesson only, with a stable idempotency key. On an unknown outcome, stop and preserve the key; never automatically create again. Content/settings/file writes, publication, deletion and full PDF transfer remain unavailable. Requires compatible backend/evolution/consent and service 0.1.2 rollout; live login/write acceptance remains unverified.
+
 ## Your SOHO connections
 
-Select **soho-connections** in the Codex skill picker, or `/soho-agent:soho-connections` in local Claude Code. It shows one page of your own connections: current marker, client, school, employee/support administrator, expiry/revocation and last registered request. Support mode lists only the initiator’s support connections; direct mode lists only the effective employee’s direct connections. The modes are not combined. Ask for more to load the next page. These are OAuth connections, not chats or online status; request history is approximate to a minute, and missing history is unknown. Requires backend `connections.v1` rollout; otherwise use Master/Admin connections. Listing does not disconnect anything.
+Select **soho-connection** in the Codex skill picker, or `/soho-agent:soho-connection` in local Claude Code. It shows one page of your own connections: current marker, client, school, employee/support administrator, expiry/revocation and last registered request. Support mode lists only the initiator’s support connections; direct mode lists only the effective employee’s direct connections. The modes are not combined. Ask for more to load the next page. These are OAuth connections, not chats or online status; request history is approximate to a minute, and missing history is unknown. Requires backend `connections.v1` rollout; otherwise use Master/Admin connections. Listing does not disconnect anything.
 
 ## Disconnect or reconnect SOHO
 
-In Codex, select **soho-disconnect** or **soho-reconnect** in the `/`/`$` skill picker. Local Claude Code plugin commands are `/soho-agent:soho-disconnect` and `/soho-agent:soho-reconnect`.
+In Codex, select **soho-connection** in the `/`/`$` skill picker; in local Claude Code use `/soho-agent:soho-connection`. Ask to list connections, disconnect the current connection, or reconnect.
 
 **Disconnect** calls `soho_disconnect` for the current connection only: every chat sharing its grant loses access. Other connections, LMS data and chat history are unchanged. An error means the outcome is unconfirmed, with no automatic retry; inspect [your Master connections](https://master.soholms.com/profile/agent-connections) or Admin → `/settings/agent-connections`. On an older server without the tool, the helper gives UI guidance and explicitly reports that it has not disconnected anything.
 
@@ -78,7 +82,7 @@ Access lasts at most 30 days and never outlives the original Intrude session. Di
 
 ## Current availability
 
-This project is a work in progress (WIP). Installation adds PDF analysis skills and the MCP configuration for `https://api.soholms.com/mcp`. File upload, import and LMS changes are unavailable.
+This project is a work in progress (WIP). Installation adds PDF analysis skills and the MCP configuration for `https://api.soholms.com/mcp`. File upload, full import and other LMS changes beyond the two Agent creates are unavailable.
 
 After installation, open the bundled SOHO connection in the installed Codex plugin and choose sign in. In Claude Code, open `/mcp`, select `plugin:soho-agent:soho` and authenticate. The browser opens SOHO: sign in and approve the intended school. Do not add a duplicate manual MCP server to test the plugin.
 

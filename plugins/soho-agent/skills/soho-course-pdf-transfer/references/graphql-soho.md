@@ -1,30 +1,12 @@
 # SOHO.LMS GraphQL introduction
 
-Read before LMS access. This is a bounded integration guide, **not** a complete schema or a working connection. Bootstrap has no MCP tools. Schema facts were checked against local product sources on 2026-10-01; deployed schema/version must still be verified. Supplied workflow observations are labeled separately.
+Read before LMS access. This is a bounded integration guide, **not** a complete schema or a working connection. The shared Agent API is available through MCP after compatible backend/service rollout. Native content facts below do not enable those writes in the Agent schema. Deployed schema/version and live client acceptance remain separate checks.
 
-## Domain and ID distinctions
+## Shared API layer
 
-- `AcademicDiscipline`: shared teaching template; typical PDF-transfer target.
-- `Course`: commercial offering linked to teaching content. Creating a curriculum does not create/authorize sales or publishing.
-- `Academic*`: templates; `Learning*`: a learner's instance/progress/access. Do not change a learner instance instead of the teaching template.
-- Current legacy lesson input may distinguish `AcademicLesson` and `InteractiveLesson`. This workflow targets supported self-paced academic lessons; do not infer future unified types.
-- Relay `id`, numeric entity `uid`, and content-item string `uid` are different. Mutations may require numeric IDs even when reads expose global Relay IDs. Convert only with a verified schema/tool mapping.
+For context, domain/ID distinctions, schema discovery, document/variable construction, supported Query/Mutation, OAuth scope and outcome/recovery rules, read the canonical [SOHO GraphQL skill](../../soho-graphql/SKILL.md) and its [Agent API semantics](../../soho-graphql/references/agent-api.md). These facts are maintained once there.
 
-## Connection and authorization
-
-Prefer the configured high-level SOHO connection. Tokens, refresh and organization authorization belong to its runtime, not this skill. Never copy browser cookies, a full authenticated cURL or a token into chat/plugin files/reports.
-
-Existing Master path is `/master/graphql` on the configured API origin; do not guess `/graphql` or production host. Current frontend sends POST JSON `query`/`variables`, `Authorization: Bearer <idToken>`, `x-procraft-query` for operation name and `x-procraft-org` for attribution. Org is enforced by authenticated identity; the header does **not** grant tenant selection.
-
-An internal `/master/api/ai-import/access` issues time-limited access metadata, but is not a scoped OAuth/refresh flow. Corporate REST `Authorization: TOKEN` is a different API. The planned remote MCP/gateway credentials are separate audiences; do not pass one bearer to another endpoint.
-
-Discover actual capabilities and catalog first. For a new write shape, use supported operation documentation/schema excerpt or a verified current native example. No guessed enum labels/required fields; no full schema dump by default. If direct GraphQL is independently authorized for a pilot, use only the approved endpoint/operation/runtime, not improvised credential extraction.
-
-## Transport and operation outcomes
-
-Set operation name/variables explicitly. Check HTTP status **and** GraphQL `errors` plus payload-level result; HTTP 200/partial data is not proof of success. Error reports contain request/job ID and safe summary, not raw headers/secrets.
-
-Reads may require pagination and union/interface fragments. A partial read is insufficient for a replacing write. On timeout/transport failure, reconcile saved objects or job state before retrying. A title match, clientMutationId or post-execution log alone is not idempotency. Existing API also lacks a general revision guarantee: without server-side atomic protection, flag concurrent-write limits rather than claiming safety.
+The current Agent API only creates teaching templates and empty draft lessons. The native content/settings/file facts below are scenario-specific references, not callable Agent capabilities. Do not bypass missing Agent writes with Master/browser credentials. These observations were checked against local product sources on2026-10-01; recheck actual supported schema before any separately authorized pilot.
 
 ## Learning operations and exact update scope
 
