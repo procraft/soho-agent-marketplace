@@ -4,8 +4,7 @@
       "type": "http",
       "url": "https://api.soholms.com/mcp",
       "scopes": [
-        "soho.learning.read",
-        "soho.learning.write"
+        "soho.connections.manage"
       ],
       "oauth_resource": "https://api.soholms.com/mcp",
       "oauth": {

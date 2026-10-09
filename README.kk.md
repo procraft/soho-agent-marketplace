@@ -115,3 +115,9 @@ Claude Code бағдарламасын қайта іске қосыңыз. Marke
 Өзгерістер: [CHANGELOG](plugins/soho-agent/CHANGELOG.md). Пакет пен қызмет бөлек жаңартылады; фондық автоматты жаңарту іске асырылмаған.
 
 Сүйемелдеушілерге арналған мәліметтер және клиент құжаттамасы: [English](README.en.md#maintenance).
+
+## Conversation school connections (package 0.1.7)
+
+The native resource is /mcp with soho.connections.manage. Use **soho-connect** (local Claude Code: /soho-agent:soho-connect) to show the current school; showing status never selects one. An explicit school ID reuses uniquely eligible existing authorization without a browser step when backend session-direct.v1 is available. Explicit conversation disconnect also applies directly. Both use the current expectedRevision; a conflict requires status refresh and a new user choice, never automatic replay. New or ambiguous authorization and older backends retain browser controls; repeat status after browser approval and verify the exact school before working.
+
+Conversation disconnect preserves other sessions and school authorization. Legacy grant revocation is separate. Session/revision/context selectors stay only in the conversation; forks are not automatically detected. Requires backend session.v1/context-exchange.v1 and session-direct.v1 for direct actions, frontend consent controls and service 0.1.4. Installed 0.1.5, owner-mode rollout and live client acceptance remain separate steps.

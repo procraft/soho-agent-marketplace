@@ -85,15 +85,17 @@ export async function verifyMarketplace(root, { ignoreRefreshLock = false } = {}
     const entry = value.plugins?.[0];
     if (value.name !== marker.name || value.plugins.length !== 1 || entry.name !== marker.name || (typeof entry.source === 'string' ? entry.source : entry.source?.path) !== './plugins/soho-agent') throw new Error(`Invalid marketplace catalog: ${file}`);
   }
+  const principalResource = Number(marker.packageVersion.split('.')[0]) > 0 || Number(marker.packageVersion.split('.')[1]) > 1 || (Number(marker.packageVersion.split('.')[1]) === 1 && Number(marker.packageVersion.split('.')[2]) >= 7);
+  const nativeScopes = principalResource ? ['soho.connections.manage'] : writeScopeVersion(marker.packageVersion) ? ['soho.learning.read', 'soho.learning.write'] : ['soho.learning.read'];
   for (const file of native ? ['.mcp.json', 'mcp-claude.json'] : ['mcp.json', '.mcp.json']) {
     const value = await readJson(pluginRoot, file);
     const nativeServer = file === 'mcp-claude.json'
-      ? { type: 'http', url: marker.endpoint, oauth: { clientId: 'soho-agent-claude-code', callbackPort: 8766, scopes: writeScopeVersion(marker.packageVersion) ? 'soho.learning.read soho.learning.write' : 'soho.learning.read' } }
-      : { type: 'http', url: marker.endpoint, scopes: writeScopeVersion(marker.packageVersion) ? ['soho.learning.read', 'soho.learning.write'] : ['soho.learning.read'], oauth_resource: marker.endpoint, oauth: { clientId: 'soho-agent-codex', callbackUrl: 'http://127.0.0.1/callback' } };
+      ? { type: 'http', url: marker.endpoint, oauth: { clientId: 'soho-agent-claude-code', callbackPort: 8766, scopes: nativeScopes.join(' ') } }
+      : { type: 'http', url: marker.endpoint, scopes: nativeScopes, oauth_resource: marker.endpoint, oauth: { clientId: 'soho-agent-codex', callbackUrl: 'http://127.0.0.1/callback' } };
     const expectedConfig = native ? { mcpServers: { soho: nativeServer } } : { ...(file === 'mcp.json' ? { $schema: 'https://agent-plugins.org/schemas/1.0.0/mcp.schema.json' } : {}), mcpServers: { soho: { type: file === 'mcp.json' ? 'streamable-http' : 'http', url: marker.endpoint } } };
     if (JSON.stringify(value) !== JSON.stringify(expectedConfig)) throw new Error('Marketplace MCP endpoint/OAuth/credential mismatch');
   }
-  if (marker.endpoint !== 'https://api.soholms.com/mcp' || marker.source?.exportSha256 !== digest(JSON.stringify(marker.files))) throw new Error('Invalid marketplace endpoint/provenance');
+  if (!['https://api.soholms.com/mcp'].includes(marker.endpoint) || marker.source?.exportSha256 !== digest(JSON.stringify(marker.files))) throw new Error('Invalid marketplace endpoint/provenance');
   return marker;
 }
 

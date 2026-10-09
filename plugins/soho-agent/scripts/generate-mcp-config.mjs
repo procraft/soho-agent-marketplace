@@ -1,17 +1,19 @@
 import { args, cli, compareVersions, isMain, json, trustedUrl } from './distribution-lib.mjs';
 
-export const sohoEndpoint = 'https://api.soholms.com/mcp';
+export const legacySohoEndpoint = 'https://api.soholms.com/mcp';
+export const sohoEndpoint = legacySohoEndpoint;
+export const principalScope = 'soho.connections.manage';
 export const sohoScope = 'soho.learning.read soho.learning.write';
 export const sohoScopes = sohoScope.split(' ');
 // Public identifiers, not secrets. They must match the companion AS registry.
 export const codexOAuth = { clientId: 'soho-agent-codex', callbackUrl: 'http://127.0.0.1/callback' };
 export const claudeOAuth = { clientId: 'soho-agent-claude-code', callbackPort: 8766, scopes: sohoScope };
 
-export function generateConfig(client, endpoint, allowLoopback = false, packageVersion = '0.1.5') {
+export function generateConfig(client, endpoint, allowLoopback = false, packageVersion = '0.1.7') {
   const url = trustedUrl(endpoint, { allowLoopback });
-  const isSoho = url === sohoEndpoint;
+  const isSoho = url === sohoEndpoint || url === legacySohoEndpoint;
   const remote = { url };
-  const scopes = compareVersions(packageVersion, '0.1.5') >= 0 ? sohoScopes : ['soho.learning.read'];
+  const scopes = url === sohoEndpoint && compareVersions(packageVersion, '0.1.7') >= 0 ? [principalScope] : compareVersions(packageVersion, '0.1.5') >= 0 ? sohoScopes : ['soho.learning.read'];
   const claude = { ...claudeOAuth, scopes: scopes.join(' ') };
   switch (client) {
     // Portable 1.0.0 has no OAuth extension. Never add vendor-only fields here.

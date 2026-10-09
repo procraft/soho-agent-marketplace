@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.1.7
+
+- Keep the native URL /mcp for owner-only access. Old school credentials require a one-time OAuth migration; reusable school grants are preserved. No additional principal ingress routes are required.
+
+- Reuse uniquely eligible existing school consent directly from an explicit chat request; conversation disconnect is direct and revision-checked. Requires backend session-direct.v1 and service 0.1.4. Old backends retain browser controls; new authorization still requires consent.
+- Diagnose legacy installed packages without assuming a Codex Desktop /mcp command. Publication, installation and live acceptance remain separate rollout steps.
+
+## 0.1.6
+
+- Add owner OAuth and explicit conversation school contexts, browser connect/switch/disconnect controls, and the soho-connect skill. Legacy school grants remain supported. Requires backend session.v1/context-exchange.v1 and service 0.1.3; live host/consent acceptance is unverified.
+
 Client package authoring history. Package publication and remote service deployment have separate lifecycles.
 
 ## 0.1.5

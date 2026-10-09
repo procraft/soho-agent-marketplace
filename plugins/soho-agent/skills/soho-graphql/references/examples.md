@@ -53,3 +53,7 @@ mutation CreateDraftLesson($input: AgentAcademicLessonCreateInput!) { academicLe
   "idempotencyKey": "example-lesson-create-1"
 }
 ```
+
+## MCP selector when using these documents
+
+These are GraphQL documents/variables, not complete MCP calls. In owner mode add the current top-level contextId to every schema/validate/query/mutate tool request, obtained from soho-connect. Keep it outside the GraphQL variables shown here. Legacy school-bound mode keeps its existing inputs.
